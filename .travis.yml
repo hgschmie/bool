@@ -1,0 +1,23 @@
+language: java
+
+cache:
+  directories:
+    - $HOME/.m2
+
+jdk:
+  - openjdk8
+  - openjdk11
+  - openjdk14
+
+sudo: false
+
+before_install:
+  - wget https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+  - unzip -qq apache-maven-3.6.3-bin.zip
+  - export M2_HOME=$PWD/apache-maven-3.6.3
+  - export PATH=$M2_HOME/bin:$PATH
+  - mvn --version
+
+install: mvn -DskipTests=true -Dbasepom.check.skip-all=true -Dbasepom.it.skip=true -B -fae install
+script: mvn -B -fae verify
+

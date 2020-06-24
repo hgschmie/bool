@@ -1,0 +1,151 @@
+<!--
+~   Licensed under the Apache License, Version 2.0 (the "License");
+~   you may not use this file except in compliance with the License.
+~   You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~   Unless required by applicable law or agreed to in writing, software
+~   distributed under the License is distributed on an "AS IS" BASIS,
+~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~   See the License for the specific language governing permissions and
+~   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.basepom</groupId>
+        <artifactId>basepom-oss</artifactId>
+        <version>31</version>
+    </parent>
+
+    <groupId>de.softwareforge</groupId>
+    <artifactId>bool</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <description>A simple boolean expression parser</description>
+
+    <properties>
+        <dep.antlr.version>4.7.2</dep.antlr.version>
+        <dep.junit5.version>5.6.2</dep.junit5.version>
+    </properties>
+
+
+  <developers>
+    <developer>
+      <id>hgschmie</id>
+      <name>Henning Schmiedehausen</name>
+      <email>henning@schmiedehausen.org</email>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:ssh://github.com/hgschmie/bool.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/hgschmie/bool.git</developerConnection>
+        <url>https://github.com/hgschmie/bool</url>
+        <tag>HEAD</tag>
+    </scm>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-runtime</artifactId>
+                <version>${dep.antlr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${dep.junit5.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.antlr</groupId>
+                    <artifactId>antlr4-maven-plugin</artifactId>
+                    <version>${dep.antlr.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>antlr4</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <visitor>true</visitor>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <excludeRoots combine.children="append">
+                        <excludeRoot>target/generated-sources/antlr4</excludeRoot>
+                    </excludeRoots>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <configuration>
+                    <excludeFilterFile>${project.basedir}/src/build/spotbugsExcludeFilter.xml</excludeFilterFile>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <configuration>
+                    <mapping combine.children="append">
+                        <g4>SLASHSTAR_STYLE</g4>
+                    </mapping>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

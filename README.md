@@ -49,4 +49,4 @@ evaluates simple boolean expressions.
 * First release
 
 ----
-[![Build Status](https://travis-ci.org/hgschmie/bool.svg?branch=master)](https://travis-ci.org/hgschmie/bool)[![Latest Release](https://maven-badges.herokuapp.com/maven-central/org.hgschmie.maven/bool/badge.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.softwareforge%22%20AND%20a%3A%22bool%22)
+[![Build Status](https://travis-ci.org/hgschmie/bool.svg?branch=master)](https://travis-ci.org/hgschmie/bool)[![Latest Release](https://maven-badges.herokuapp.com/maven-central/de.softwareforge/bool/badge.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.softwareforge%22%20AND%20a%3A%22bool%22)

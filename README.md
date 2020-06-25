@@ -33,7 +33,7 @@ evaluates simple boolean expressions.
 <dependency>
     <groupId>de.softwareforge</groupId>
     <artifactId>bool</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 

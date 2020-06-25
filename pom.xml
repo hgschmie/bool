@@ -22,7 +22,7 @@
 
     <groupId>de.softwareforge</groupId>
     <artifactId>bool</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <description>A simple boolean expression parser</description>
@@ -54,7 +54,7 @@
         <connection>scm:git:ssh://github.com/hgschmie/bool.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hgschmie/bool.git</developerConnection>
         <url>https://github.com/hgschmie/bool</url>
-        <tag>bool-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 

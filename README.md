@@ -37,5 +37,23 @@ evaluates simple boolean expressions.
 </dependency>
 ```
 
+## Changes
+
+ [Keep a Changelog v1.0.0](http://keepachangelog.com/en/1.0.0/).
+
+### Unreleased
+
+#### Added
+
+#### Changed
+
+#### Deprecated
+
+#### Removed
+
+#### Fixed
+
+#### Security
+
 ----
 [![Build Status](https://travis-ci.org/hgschmie/bool.svg?branch=master)](https://travis-ci.org/hgschmie/bool)[![Latest Release](https://maven-badges.herokuapp.com/maven-central/org.hgschmie.maven/bool/badge.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.softwareforge%22%20AND%20a%3A%22bool%22)
